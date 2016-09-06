@@ -4,13 +4,20 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.TaskStackBuilder;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.SpannableStringBuilder;
+import android.text.Spanned;
 import android.text.format.DateUtils;
+import android.text.method.LinkMovementMethod;
+import android.text.style.ClickableSpan;
+import android.text.style.ImageSpan;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -56,7 +63,41 @@ public class MainActivity extends AppCompatActivity {
                 .isConnectedOrConnecting();
 
         System.out.println(is3g + " net " + isWifi);
+
+
+        TextView tvTextHeader = (TextView) findViewById(R.id.tvTextHeader);
+        SpannableStringBuilder ssBuilder = new SpannableStringBuilder(getString(R.string.text_header_answer));
+
+        Drawable myIcon = getResources().getDrawable(R.drawable.btn_feedback_yellow);
+        int width = (int) Functions.convertDpToPixel(75, this);
+        int height = (int) Functions.convertDpToPixel(23, this);
+        myIcon.setBounds(0, 0, width, height );
+        CenteredImageSpan btnFeedback = new CenteredImageSpan(myIcon, ImageSpan.ALIGN_BASELINE);
+        ssBuilder.setSpan(
+                btnFeedback, // Span to add
+                getString(R.string.text_header_answer).length() - 1, // Start of the span (inclusive)
+                getString(R.string.text_header_answer).length(), // End of the span (exclusive)
+                Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);// Do not extend the span when text add later
+        ssBuilder.setSpan(
+                click_span,
+                getString(R.string.text_header_answer).length() - 1, // Start of the span (inclusive)
+                getString(R.string.text_header_answer).length(), // End of the span (exclusive)
+                Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+        tvTextHeader.setText(ssBuilder);
+        tvTextHeader.setMovementMethod(LinkMovementMethod.getInstance());
     }
+
+    ClickableSpan click_span = new ClickableSpan() {
+
+        @Override
+        public void onClick(View widget) {
+            Toast.makeText(MainActivity.this, "Image Clicked ",
+                    Toast.LENGTH_SHORT).show();
+
+        }
+
+    };
 
     public void createSimpleNotification(Context context) {
         // Creates an explicit intent for an Activity

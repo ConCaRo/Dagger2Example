@@ -1,5 +1,7 @@
 package ccr.dagger2example.jakewarton;
 
+import android.app.Application;
+
 import javax.inject.Singleton;
 
 import dagger.Component;
@@ -11,6 +13,10 @@ import dagger.Component;
 @Component(modules =  {NetworkModule.class, TwitterModule.class})
 public interface TwitterComponent {
 
-    Tweeter tweeter();
-    TimeLine timeLine();
+    void injectApplication(TwitterApplication app);
+
+//    TwitterApplication application();
+
+//    Tweeter tweeter();
+//    TimeLine timeLine();
 }

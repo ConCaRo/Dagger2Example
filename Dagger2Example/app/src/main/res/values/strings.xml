@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Dagger2Example</string>
+
+    <string name="can_try_again">Press [img src=ic_fb] to accept or [img src=ic_fb] to retry</string>
+
+    <string name="text_header_answer">"Chúng tôi sẽ trả lời trong vòng 24 giờ tới. Nếu có thắc mắc bạn có thể liên hệ bộ phận hỗ trợ tại  "</string>
 </resources>

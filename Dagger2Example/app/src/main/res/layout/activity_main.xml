@@ -9,11 +9,46 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="ccr.dagger2example.MainActivity">
 
+
     <TextView
         android:id="@+id/tvShowNoti"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="5dp"
+        android:ellipsize="end"
+        android:maxLines="5"
+        android:text="utor.app D/PhoneWindow: *FMB* isFloatingMenuEnabled return false
+08-22 10:25:16.122 25799-25799/co.asktutor.app I/Timeline: Timeline: Activity_idle id: android.os.BinderProxy@77b73c1 time:299216447
+08-22 10:25:16.477 25799-25799/co.asktutor.app V/ActivityThread: updateVisibility : ActivityRecord{39007fc token=android.os.BinderProxy@2a5836ac {co.asktutor.app/co.asktutor.app.view.a" />
+
+
+    <TextView
+        android:id="@+id/tvViewMore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/tvShowNoti"
+        android:layout_alignRight="@+id/tvShowNoti"
         android:background="@android:color/holo_red_dark"
-        android:text="Hello World! Main" />
+        android:text="    ... View More >> " />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="200dp"
+        android:gravity="center_vertical"
+        android:paddingLeft="80dp"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:id="@+id/tvTextHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="3dp"
+            android:paddingBottom="20dp"
+            android:text="@string/text_header_answer" />
+
+    </LinearLayout>
+
 </RelativeLayout>

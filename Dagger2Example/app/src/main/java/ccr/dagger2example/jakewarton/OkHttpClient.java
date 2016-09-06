@@ -6,6 +6,6 @@ package ccr.dagger2example.jakewarton;
 public class OkHttpClient {
 
     public void sendRequest(String request) {
-        System.out.print("Request: " + request);
+        System.out.println("Request: " + request);
     }
 }

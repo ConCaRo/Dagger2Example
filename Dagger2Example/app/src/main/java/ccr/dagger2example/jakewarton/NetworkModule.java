@@ -15,4 +15,9 @@ public class NetworkModule {
     public OkHttpClient provideOkHttpClient() {
         return new OkHttpClient();
     }
+
+    @Provides @Singleton
+    public TweeterApi provideTweeterApi(OkHttpClient client) {
+        return new TweeterApi(client);
+    }
 }
